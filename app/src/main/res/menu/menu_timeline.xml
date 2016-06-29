@@ -9,5 +9,12 @@
         android:icon="@drawable/ic_profile"
         android:onClick="onProfileView"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/miCreateTweet"
+        android:orderInCategory="101"
+        android:title="CreateTweet"
+        android:icon="@drawable/ic_create_tweet"
+        android:onClick="onCreateTweet"
+        app:showAsAction="ifRoom" />
 
 </menu>

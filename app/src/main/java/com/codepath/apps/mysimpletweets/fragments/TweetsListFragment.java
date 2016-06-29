@@ -38,7 +38,14 @@ public class TweetsListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         tweets = new ArrayList<>();
-        aTweets = new TweetsArrayAdapter(getActivity(), tweets);
+        aTweets = new TweetsArrayAdapter(getActivity(), tweets, -1);
+    }
+
+    public void onCreate(@Nullable Bundle savedInstanceState, long uid) {
+        super.onCreate(savedInstanceState);
+
+        tweets = new ArrayList<>();
+        aTweets = new TweetsArrayAdapter(getActivity(), tweets, uid);
     }
 
     public void addAll(List<Tweet> tweets) {

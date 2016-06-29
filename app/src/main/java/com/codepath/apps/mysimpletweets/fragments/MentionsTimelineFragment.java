@@ -31,7 +31,6 @@ public class MentionsTimelineFragment extends TweetsListFragment {
         client.getMentionsTimeline(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                Log.d("DEBUG", response.toString());
                 addAll(Tweet.fromJSONArray(response));
             }
 

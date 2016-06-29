@@ -22,22 +22,33 @@ public class UserTimelineFragment extends TweetsListFragment{
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        if (getArguments() == null)
+            super.onCreate(savedInstanceState);
+        else
+            super.onCreate(savedInstanceState, getArguments().getLong("uid"));
         client = TwitterApplication.getRestClient();
         populateTimeline();
     }
 
-    public static UserTimelineFragment newInstance(String screen_name) {
+    public static UserTimelineFragment newInstance() {
+        return new UserTimelineFragment();
+    }
+
+    public static UserTimelineFragment newInstance(long uid) {
         UserTimelineFragment userFragment = new UserTimelineFragment();
         Bundle args = new Bundle();
-        args.putString("screen_name", screen_name);
+        args.putLong("uid", uid);
         userFragment.setArguments(args);
         return userFragment;
     }
 
     private void populateTimeline() {
-        String screenName = getArguments().getString("screen_name");
-        client.getUserTimeline(screenName, new JsonHttpResponseHandler() {
+        long uid;
+        if (getArguments() == null)
+            uid = -1;
+        else
+            uid = getArguments().getLong("uid");
+        client.getUserTimeline(uid, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 Log.d("DEBUG", response.toString());

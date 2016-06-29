@@ -27,8 +27,19 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/tvBody"
-        android:layout_alignBottom="@+id/ivProfileImage"
+        android:layout_below="@+id/tvUserName"
         android:layout_toRightOf="@+id/ivProfileImage"
-        android:layout_toEndOf="@+id/ivProfileImage" />
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7m"
+        android:id="@+id/tvTime"
+        android:layout_alignTop="@+id/tvUserName"
+        android:layout_toRightOf="@+id/tvUserName"
+        android:layout_toEndOf="@+id/tvUserName"
+        android:layout_marginLeft="10dp" />
 
 </RelativeLayout>
