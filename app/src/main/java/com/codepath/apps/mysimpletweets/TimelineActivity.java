@@ -2,6 +2,7 @@ package com.codepath.apps.mysimpletweets;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -11,12 +12,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.codepath.apps.mysimpletweets.fragments.ComposeTweetFragment;
 import com.codepath.apps.mysimpletweets.fragments.HomeTimelineFragment;
 import com.codepath.apps.mysimpletweets.fragments.MentionsTimelineFragment;
-import com.codepath.apps.mysimpletweets.fragments.TweetsListFragment;
 
-public class TimelineActivity extends AppCompatActivity {
-    private TweetsListFragment fragmentTweetsList;
+public class TimelineActivity extends AppCompatActivity implements ComposeTweetFragment.ComposeTweetListener{
 
 
 
@@ -41,12 +41,6 @@ public class TimelineActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        return super.onOptionsItemSelected(item);
-    }
-
     public void onProfileView(MenuItem mi) {
         Intent i = new Intent(this, ProfileActivity.class);
         i.putExtra("method", 1);
@@ -54,9 +48,23 @@ public class TimelineActivity extends AppCompatActivity {
     }
 
     public void onCreateTweet(MenuItem item) {
-        Intent i = new Intent(this, ComposeTweetActivity.class);
+        FragmentManager fm = getSupportFragmentManager();
+        ComposeTweetFragment composeTweetFragment = ComposeTweetFragment.newInstance();
+        composeTweetFragment.show(fm, "fragment_compose_tweet");
+    }
+
+    @Override
+    public void onSubmitTweet(Parcelable tweet) {
+        //TODO Tweet newTweet = (Tweet) Parcels.unwrap(tweet);
+        Intent i = new Intent(this, ProfileActivity.class);
+        i.putExtra("method", 1);
         startActivity(i);
     }
+
+    /*@Override
+    public void onFinishEditDialog(String inputText) {
+        //add tweet
+    }*/
 
     public class TweetsPagerAdapter extends FragmentPagerAdapter {
         private String tabTitles [] = {"home", "mentions"};

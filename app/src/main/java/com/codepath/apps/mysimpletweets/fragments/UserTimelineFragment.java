@@ -42,7 +42,7 @@ public class UserTimelineFragment extends TweetsListFragment{
         return userFragment;
     }
 
-    private void populateTimeline() {
+    public void populateTimeline() {
         long uid;
         if (getArguments() == null)
             uid = -1;

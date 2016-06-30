@@ -9,4 +9,10 @@
     <string name="title_activity_profile">Profile</string>
     <string name="action_settings">action_settings</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="CHAR_LIMIT">140</string>
+    <string name="tweet">Tweet</string>
+    <string name="david">David</string>
+
 </resources>

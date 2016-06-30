@@ -24,6 +24,7 @@ repositories {
 }
 
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.application'
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
@@ -33,6 +34,8 @@ dependencies {
     // Picasso for remote image loading
     // Android Async Http for sending async network requests
     // ActiveAndroid for simple persistence with an ORM
+    apt 'com.jakewharton:butterknife-compiler:8.1.0'
+    apt 'org.parceler:parceler:1.1.1'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.loopj.android:android-async-http:1.4.9'
@@ -41,6 +44,5 @@ dependencies {
     compile 'com.android.support:design:23.4.0'
     compile 'org.parceler:parceler-api:1.1.1'
     compile 'com.jakewharton:butterknife:8.1.0'
-    apt 'com.jakewharton:butterknife-compiler:8.1.0'
-    apt 'org.parceler:parceler:1.1.1'
+    compile 'com.android.support:support-v4:23.4.0'
 }

@@ -2,10 +2,12 @@ package com.codepath.apps.mysimpletweets.models;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 /**
  * Created by dgisser on 6/27/16.
  */
+@Parcel
 public class User {
     public String getName() {
         return name;
@@ -23,13 +25,13 @@ public class User {
         return profileImageUrl;
     }
 
-    private String name;
-    private long uid;
-    private String screenName;
-    private String tagline;
-    private int followersCount;
-    private int followingCount;
-    private String profileImageUrl;
+    public String name;
+    public long uid;
+    public String screenName;
+    public String tagline;
+    public int followersCount;
+    public int followingCount;
+    public String profileImageUrl;
 
     public String getTagline() {
         return tagline;
@@ -42,6 +44,8 @@ public class User {
     public int getFollowingCount() {
         return followingCount;
     }
+
+    public User () {}
 
     public static User fromJSON(JSONObject json) {
         User u = new User();
