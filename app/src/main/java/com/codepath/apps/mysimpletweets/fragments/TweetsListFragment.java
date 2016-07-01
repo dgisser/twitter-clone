@@ -27,6 +27,7 @@ abstract public class TweetsListFragment extends Fragment {
     public TweetsArrayAdapter aTweets;
     @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
     public abstract void populateTimeline();
+    public abstract void populateTimeLine(SwipeRefreshLayout layout);
 
     @Nullable
     @Override
@@ -60,8 +61,7 @@ abstract public class TweetsListFragment extends Fragment {
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
                 tweets.clear();
-                populateTimeline();
-                swipeContainer.setRefreshing(false);
+                populateTimeLine(swipeContainer);
             }
         });
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,

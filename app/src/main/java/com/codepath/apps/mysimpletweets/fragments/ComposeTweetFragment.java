@@ -33,7 +33,9 @@ public class ComposeTweetFragment extends DialogFragment implements View.OnClick
     @BindView(R.id.etTweet) EditText etTweet;
     @BindView(R.id.btTweet) Button btTweet;
     private TwitterClient client;
+    private String userName;
     private Tweet tweet;
+    final int MAX_TWEET_SIZE = 140;
 
     public interface ComposeTweetListener {
         void onSubmitTweet(Parcelable tweet);
@@ -53,9 +55,18 @@ public class ComposeTweetFragment extends DialogFragment implements View.OnClick
         return new ComposeTweetFragment();
     }
 
+    public static ComposeTweetFragment newInstance(String userName) {
+        ComposeTweetFragment frag = new ComposeTweetFragment();
+        Bundle args = new Bundle();
+        args.putString("userName", userName);
+        frag.setArguments(args);
+        return frag;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        userName = getArguments().getString("userName");
         client = TwitterApplication.getRestClient();
     }
 
@@ -65,6 +76,10 @@ public class ComposeTweetFragment extends DialogFragment implements View.OnClick
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_compose_tweet, container, false);
         ButterKnife.bind(this, view);
+        if(userName != null && !userName.isEmpty()) {
+            etTweet.setText(String.format("@%s", userName));
+            reverseCharCounter.setText(String.valueOf(MAX_TWEET_SIZE - userName.length() - 1));
+        }
         etTweet.addTextChangedListener(mTextEditorWatcher);
         btTweet.setOnClickListener(this);
         return view;
@@ -76,7 +91,6 @@ public class ComposeTweetFragment extends DialogFragment implements View.OnClick
 
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             //This sets a textview to the current length
-            final int MAX_TWEET_SIZE = 140;
             reverseCharCounter.setText(String.valueOf(MAX_TWEET_SIZE - s.length()));
         }
 

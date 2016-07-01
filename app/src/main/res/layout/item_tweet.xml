@@ -43,4 +43,15 @@
         android:layout_toEndOf="@+id/tvUserName"
         android:layout_marginLeft="10dp" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btReply"
+        android:layout_below="@+id/ivProfileImage"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_reply"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/tvBody"
+        android:layout_toStartOf="@+id/tvBody"/>
+
 </RelativeLayout>
