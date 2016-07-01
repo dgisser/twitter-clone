@@ -2,9 +2,9 @@ package com.codepath.apps.mysimpletweets;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,17 +17,23 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends BasicActivity {
     TwitterClient client;
     User user;
+    private MenuItem miActionProgressItem;
+    //@BindView(R.id.miActionProgress) MenuItem miActionProgressItem;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         client = TwitterApplication.getRestClient();
+        ButterKnife.bind(this);
+        showProgressBar();
         switch (getIntent().getIntExtra("method",0)) {
             case 1:
                 if (savedInstanceState == null) {
@@ -42,11 +48,13 @@ public class ProfileActivity extends AppCompatActivity {
                         user = User.fromJSON(response);
                         getSupportActionBar().setTitle("@" + user.getScreenName());
                         populateProfileHeader(user);
+                        hideProgressBar();
                     }
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject obj) {
                         Log.d("profileactivity",obj.toString());
+                        hideProgressBar();
                     }
                 });
                 break;
@@ -71,16 +79,19 @@ public class ProfileActivity extends AppCompatActivity {
                         }
                         getSupportActionBar().setTitle("@" + user.getScreenName());
                         populateProfileHeader(user);
+                        hideProgressBar();
                     }
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject obj) {
                         Log.d("profileactivity",obj.toString());
+                        hideProgressBar();
                     }
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                         Log.d("profileactivity",responseString.toString());
+                        hideProgressBar();
                     }
                 });
                 break;
@@ -107,5 +118,13 @@ public class ProfileActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_profile, menu);
         return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // Store instance of the menu item containing progress
+        miActionProgressItem = menu.findItem(R.id.miActionProgress);
+        // Return to finish
+        return super.onPrepareOptionsMenu(menu);
     }
 }

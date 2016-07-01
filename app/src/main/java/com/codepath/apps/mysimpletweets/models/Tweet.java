@@ -45,7 +45,7 @@ public class Tweet {
     public Tweet(String body, User user, String createdAt, long uid) {
         this.body = body;
         this.user = user;
-        this.createdAt = createdAt;
+        this.createdAt = getTimeDifference(createdAt);
         this.uid = uid;
     }
 

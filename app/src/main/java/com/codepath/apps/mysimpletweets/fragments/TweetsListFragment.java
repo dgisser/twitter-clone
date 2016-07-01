@@ -23,9 +23,8 @@ import butterknife.ButterKnife;
  * Created by dgisser on 6/27/16.
  */
 abstract public class TweetsListFragment extends Fragment {
-
-    private ArrayList<Tweet> tweets;
-    private TweetsArrayAdapter aTweets;
+    public ArrayList<Tweet> tweets;
+    public TweetsArrayAdapter aTweets;
     @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
     public abstract void populateTimeline();
 

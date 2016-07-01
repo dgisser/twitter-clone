@@ -18,7 +18,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/btTweet" />
+        android:layout_above="@+id/btTweet"
+        android:hint="@string/what_apos_s_happening"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:textColorHint="@color/grey"/>
 
     <Button
         android:layout_width="wrap_content"

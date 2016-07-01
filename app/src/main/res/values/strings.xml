@@ -14,5 +14,7 @@
     <string name="CHAR_LIMIT">140</string>
     <string name="tweet">Tweet</string>
     <string name="david">David</string>
+    <string name="loading">Loading...</string>
+    <string name="what_apos_s_happening">What\'s happening?</string>
 
 </resources>

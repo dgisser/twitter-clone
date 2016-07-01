@@ -16,5 +16,12 @@
         android:icon="@drawable/ic_create_tweet"
         android:onClick="onCreateTweet"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/miActionProgress"
+        android:title="@string/loading"
+        android:visible="false"
+        android:orderInCategory="102"
+        app:showAsAction="always"
+        app:actionLayout="@layout/action_view_progress" />
 
 </menu>
