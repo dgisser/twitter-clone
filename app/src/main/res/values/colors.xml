@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="grey" type="color">#808080</item>
+    <item name="twitter" type="color">#00aced</item>
+    <item name="white" type="color">#FFFFFF</item>
 </resources>
