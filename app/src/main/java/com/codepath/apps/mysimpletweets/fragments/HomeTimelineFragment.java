@@ -8,8 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.codepath.apps.mysimpletweets.BasicActivity;
-import com.codepath.apps.mysimpletweets.TimelineActivity;
+import com.codepath.apps.mysimpletweets.Activities.BasicActivity;
 import com.codepath.apps.mysimpletweets.TwitterApplication;
 import com.codepath.apps.mysimpletweets.TwitterClient;
 import com.codepath.apps.mysimpletweets.models.Tweet;
@@ -40,7 +39,7 @@ public class HomeTimelineFragment extends TweetsListFragment {
     }
 
     public void populateTimeline() {
-        ((TimelineActivity) getActivity()).showProgressBar();
+        ((BasicActivity) getActivity()).showProgressBar();
         client.getHomeTimeline(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -59,7 +58,7 @@ public class HomeTimelineFragment extends TweetsListFragment {
 
     @Override
     public void populateTimeLine(final SwipeRefreshLayout layout) {
-        ((TimelineActivity) getActivity()).showProgressBar();
+        ((BasicActivity) getActivity()).showProgressBar();
         client.getHomeTimeline(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {

@@ -12,15 +12,18 @@
                 android:translateX="26.000000"
                 android:translateY="25.000000">
             <path
+                android:fillColor="#55ACEE"
                 android:strokeColor="#55ACEE"
                 android:strokeWidth="7"
                 android:pathData="M 29.5737705 0 C 45.9069129421 0 59.147541 13.1859362374 59.147541 29.4516129 C 59.147541 45.7172895626 45.9069129421 58.9032258 29.5737705 58.9032258 C 13.2406280579 58.9032258 0 45.7172895626 0 29.4516129 C 0 13.1859362374 13.2406280579 0 29.5737705 0 Z" />
             <path
+                android:fillColor="#55ACEE"
                 android:strokeColor="#55ACEE"
                 android:strokeWidth="5.5"
                 android:strokeLineCap="square"
                 android:pathData="M53.0983607,52.8790323 L81.3278689,82.3306452 L53.0983607,52.8790323 Z" />
             <path
+                android:fillColor="#55ACEE"
                 android:strokeColor="#55ACEE"
                 android:strokeWidth="13"
                 android:strokeLineCap="round"

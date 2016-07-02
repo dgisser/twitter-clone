@@ -4,14 +4,21 @@
     tools:context=".activities.TimelineActivity">
     <item
         android:id="@+id/miProfile"
-        android:orderInCategory="100"
+        android:orderInCategory="101"
         android:title="@string/profile"
         android:icon="@drawable/profile_svg"
         android:onClick="onProfileView"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/miSearch"
+        android:orderInCategory="100"
+        android:title="Search"
+        android:icon="@drawable/search_svg"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
+    <item
         android:id="@+id/miCreateTweet"
-        android:orderInCategory="101"
+        android:orderInCategory="102"
         android:title="CreateTweet"
         android:icon="@drawable/compose_svg"
         android:onClick="onCreateTweet"
@@ -20,7 +27,7 @@
         android:id="@+id/miActionProgress"
         android:title="@string/loading"
         android:visible="false"
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         app:showAsAction="always"
         app:actionLayout="@layout/action_view_progress" />
 

@@ -2,7 +2,7 @@ package com.codepath.apps.mysimpletweets.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 /**
  * Created by dgisser on 6/27/16.
  */
-abstract public class TweetsListFragment extends Fragment {
+abstract public class TweetsListFragment extends DialogFragment {
     public ArrayList<Tweet> tweets;
     public TweetsArrayAdapter aTweets;
     @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
