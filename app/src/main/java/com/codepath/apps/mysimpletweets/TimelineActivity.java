@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.astuetz.PagerSlidingTabStrip;
 import com.codepath.apps.mysimpletweets.Activities.BasicActivity;
 import com.codepath.apps.mysimpletweets.Activities.ProfileActivity;
+import com.codepath.apps.mysimpletweets.Activities.SearchActivity;
 import com.codepath.apps.mysimpletweets.fragments.ComposeTweetFragment;
 import com.codepath.apps.mysimpletweets.fragments.HomeTimelineFragment;
 import com.codepath.apps.mysimpletweets.fragments.MentionsTimelineFragment;

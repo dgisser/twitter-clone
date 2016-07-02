@@ -1,9 +1,9 @@
-package com.codepath.apps.mysimpletweets;
+package com.codepath.apps.mysimpletweets.Activities;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 
-import com.codepath.apps.mysimpletweets.Activities.BasicActivity;
+import com.codepath.apps.mysimpletweets.R;
 import com.codepath.apps.mysimpletweets.fragments.SearchTweetsFragment;
 
 public class SearchActivity extends BasicActivity {

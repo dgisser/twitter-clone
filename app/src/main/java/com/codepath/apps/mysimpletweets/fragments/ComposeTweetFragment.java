@@ -66,7 +66,8 @@ public class ComposeTweetFragment extends DialogFragment implements View.OnClick
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        userName = getArguments().getString("userName");
+        if (getArguments() != null)
+            userName = getArguments().getString("userName");
         client = TwitterApplication.getRestClient();
     }
 

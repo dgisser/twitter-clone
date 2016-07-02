@@ -12,9 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codepath.apps.mysimpletweets.Activities.BasicActivity;
+import com.codepath.apps.mysimpletweets.Activities.DetailActivity;
 import com.codepath.apps.mysimpletweets.Activities.ProfileActivity;
 import com.codepath.apps.mysimpletweets.models.Tweet;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -64,6 +67,16 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
                 }
             });
         }
+
+        final View finalConvertView1 = convertView;
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), DetailActivity.class);
+                i.putExtra("tweet", Parcels.wrap(tweet));
+                finalConvertView1.getContext().startActivity(i);
+            }
+        });
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
         return convertView;
     }

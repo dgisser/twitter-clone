@@ -21,6 +21,7 @@ public class Tweet {
     public long uid;
     public String createdAt;
     public User user;
+    public int retweetCount;
 
     public User getUser() {
         return user;
@@ -34,9 +35,7 @@ public class Tweet {
         return uid;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
-    }
+    public String getCreatedAt() { return createdAt; }
 
     //for Parceler
     public Tweet() {
